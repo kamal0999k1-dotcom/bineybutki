@@ -56,9 +56,9 @@ export default function App() {
     try {
       const result = await analyzeQuestion(file.data, file.type);
       setAnswer(result || "माफ गर्नुहोस्, कुनै उत्तर फेला परेन।");
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setError("AI विश्लेषण गर्दा समस्या भयो। कृपया फेरि प्रयास गर्नुहोस्।");
+      setError(err.message || "AI विश्लेषण गर्दा समस्या भयो। कृपया फेरि प्रयास गर्नुहोस्।");
     } finally {
       setIsAnalyzing(false);
     }

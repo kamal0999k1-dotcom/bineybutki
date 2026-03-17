@@ -17,6 +17,13 @@ async function startServer() {
   // API Route for Analysis
   app.post("/api/analyze", async (req, res) => {
     try {
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey || apiKey === "MY_GEMINI_API_KEY") {
+        return res.status(500).json({ 
+          error: "Gemini API Key is missing. Please add GEMINI_API_KEY to your Vercel Environment Variables." 
+        });
+      }
+
       const { fileData, mimeType } = req.body;
 
       if (!fileData || !mimeType) {
