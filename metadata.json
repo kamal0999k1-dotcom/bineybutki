@@ -1,0 +1,5 @@
+{
+  "name": "BIney Butki Pukuli",
+  "description": "A dedicated learning assistant for TU BBS 3rd year students. Upload or click photos of questions to get accurate answers in Nepali.",
+  "requestFramePermissions": ["camera"]
+}
